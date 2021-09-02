@@ -21,12 +21,16 @@
         <header>
             <div class="container">
                 <img src="./images/logo.png" alt="Logo">
+                <select name="" v-model="selectedFilter">
+                    <option value="all">All</option>
+                    <option v-for="option in renderOptions" :value="option"> {{ option }}</option>
+                </select>
             </div>
         </header>
         <main>
             <div class="container">
                 <div class="album">
-                    <div v-for="song in sortedCompilation" class="card">
+                    <div v-for="song in filteredCompilation" class="card">
                         <img :src="song.poster" :alt="song.title">
                         <h2 class="title"> {{ song.title }}</h2>
                         <address class="artist"> {{ song.author }}</address>
